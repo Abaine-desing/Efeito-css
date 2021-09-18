@@ -1,39 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
-    <title>efeito css</title>
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>flip</title>
+
     <style>
-      bady {
+      body {
+        display:flex;
+        justify-content:center;
+      }
+      #card{
+        transform-style: preserve-3d;
         display: flex;
         justify-content: center;
+        transition: all .5s;
       }
-      .face {
-        width: 100px;
-        height: 100px;
+      .face{
+        width:100px;
+        height:100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: cornsilk;
+        color: white;
         position: absolute;
+        border-radius: 10px;
       }
-      #front {
-        background-color: aqua;
-        transform: rotate(180deg);
+
+      #front{
+        background-color: rgb(6, 131, 131);
+        transform:rotateY(180deg);
       }
-      #back {
+      #back{
         background-color: blue;
       }
+      .flip{
+        transform:rotateY(180deg);
+      }
+      
+
+      
     </style>
   </head>
   <body>
-    <div class="face" id="front">face</div>
-    <div class="face" id="back">back</div>
+
+
+    <div class="flip" id="card">
+      <div class="face" id="front">
+          Front 
+      </div>
+      <div class="face" id="back">
+          Back
+    </div>
+    </div>
+
+
+    <script>
+      const card = document.querySelector("#card")
+      card.addEventListener("click",(e)=>{
+       card.classList.toggle("flip") 
+      })
+    </script>
   </body>
 </html>
